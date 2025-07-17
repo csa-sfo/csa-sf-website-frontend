@@ -1,0 +1,100 @@
+
+import { Link } from "react-router-dom";
+import { Calendar, Mail, MapPin, ExternalLink } from "lucide-react";
+
+export function Footer() {
+  return (
+    <footer className="bg-csa-navy text-white">
+      <div className="container-site py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* About Section */}
+          <div className="space-y-4">
+            <div className="flex items-center space-x-3">
+              <div className="w-8 h-8 bg-csa-blue rounded flex items-center justify-center">
+                <span className="text-white font-bold text-sm">CSA</span>
+              </div>
+              <span className="font-semibold">CSA San Francisco</span>
+            </div>
+            <p className="text-sm text-gray-300 leading-relaxed">
+              The San Francisco Chapter of the Cloud Security Alliance promotes 
+              best practices for providing security assurance within cloud computing.
+            </p>
+          </div>
+
+          {/* Quick Links */}
+          <div className="space-y-4">
+            <h3 className="font-semibold text-csa-accent">Quick Links</h3>
+            <nav className="flex flex-col space-y-2">
+              <Link to="/events" className="text-sm text-gray-300 hover:text-csa-accent transition-colors">
+                Upcoming Events
+              </Link>
+              <Link to="/get-involved" className="text-sm text-gray-300 hover:text-csa-accent transition-colors">
+                Get Involved
+              </Link>
+              <Link to="/about" className="text-sm text-gray-300 hover:text-csa-accent transition-colors">
+                About Us
+              </Link>
+              <Link to="/contact" className="text-sm text-gray-300 hover:text-csa-accent transition-colors">
+                Contact
+              </Link>
+            </nav>
+          </div>
+
+          {/* Contact Info */}
+          <div className="space-y-4">
+            <h3 className="font-semibold text-csa-accent">Contact</h3>
+            <div className="space-y-3">
+              <div className="flex items-start space-x-3">
+                <Mail className="h-4 w-4 text-csa-accent mt-0.5 flex-shrink-0" />
+                <a 
+                  href="mailto:sanfrancisco@cloudsecurityalliance.org"
+                  className="text-sm text-gray-300 hover:text-csa-accent transition-colors"
+                >
+                  sanfrancisco@cloudsecurityalliance.org
+                </a>
+              </div>
+              <div className="flex items-start space-x-3">
+                <MapPin className="h-4 w-4 text-csa-accent mt-0.5 flex-shrink-0" />
+                <span className="text-sm text-gray-300">
+                  San Francisco Bay Area, CA
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* CSA Global */}
+          <div className="space-y-4">
+            <h3 className="font-semibold text-csa-accent">CSA Global</h3>
+            <div className="space-y-3">
+              <a
+                href="https://cloudsecurityalliance.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center space-x-2 text-sm text-gray-300 hover:text-csa-accent transition-colors"
+              >
+                <ExternalLink className="h-4 w-4" />
+                <span>Global Website</span>
+              </a>
+              <a
+                href="https://research.cloudsecurityalliance.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center space-x-2 text-sm text-gray-300 hover:text-csa-accent transition-colors"
+              >
+                <ExternalLink className="h-4 w-4" />
+                <span>Research Portal</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div className="border-t border-csa-blue/20 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+          <p>&copy; 2025 Cloud Security Alliance San Francisco Chapter. All rights reserved.</p>
+          <p className="mt-2 md:mt-0">
+            Built with accessibility and performance in mind.
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+}
