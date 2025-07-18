@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -57,9 +56,8 @@ export default function Index() {
               </Button>
               <Button 
                 asChild 
-                variant="outline" 
                 size="lg" 
-                className="border-white text-white hover:bg-white hover:text-csa-navy text-lg px-8 py-3"
+                className="bg-csa-accent hover:bg-csa-accent/90 text-white text-lg px-8 py-3"
               >
                 <Link to="/get-involved">Join Our Community</Link>
               </Button>
@@ -111,7 +109,6 @@ export default function Index() {
                   </div>
                   <Button 
                     asChild 
-                    variant="secondary" 
                     size="lg"
                     className="bg-csa-accent hover:bg-csa-accent/90 text-white whitespace-nowrap"
                   >
@@ -220,9 +217,8 @@ export default function Index() {
             </Button>
             <Button 
               asChild 
-              variant="outline" 
               size="lg" 
-              className="border-white text-white hover:bg-white hover:text-csa-navy text-lg px-8 py-3"
+              className="bg-csa-accent hover:bg-csa-accent/90 text-white text-lg px-8 py-3"
             >
               <Link to="/about">Learn More</Link>
             </Button>
