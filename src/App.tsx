@@ -12,6 +12,7 @@ import Events from "./pages/Events";
 import EventDetail from "./pages/EventDetail";
 import Archive from "./pages/Archive";
 import GetInvolved from "./pages/GetInvolved";
+import Sponsorship from "./pages/Sponsorship";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
@@ -33,6 +34,7 @@ const App = () => (
               <Route path="/events/:slug" element={<EventDetail />} />
               <Route path="/archive" element={<Archive />} />
               <Route path="/get-involved" element={<GetInvolved />} />
+              <Route path="/sponsorship" element={<Sponsorship />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
