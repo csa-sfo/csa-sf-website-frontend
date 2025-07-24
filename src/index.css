@@ -27,8 +27,8 @@
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    /* Orange from button for accent */
-    --accent: 22 100% 55%;  /* #FF8C1A */
+    /* Orange from San Francisco Chapter image for accent and buttons */
+    --accent: 25 100% 60%;  /* Orange color from the image */
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;

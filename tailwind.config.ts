@@ -63,10 +63,10 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Updated CSA Brand Colors
+				// Updated CSA Brand Colors with orange from image
 				'csa-blue': '#367ABB',
 				'csa-navy': '#2B5F8A',
-				'csa-accent': '#FF8C1A',
+				'csa-accent': '#F27D42',  // Orange color from San Francisco Chapter image
 				'csa-light': '#F7F9FC'
 			},
 			borderRadius: {
