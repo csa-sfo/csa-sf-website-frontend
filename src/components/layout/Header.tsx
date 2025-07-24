@@ -25,7 +25,7 @@ export function Header() {
   };
 
   return (
-    <header className="bg-csa-navy text-white sticky top-0 z-50 border-b border-csa-blue/20">
+    <header className="bg-primary text-white sticky top-0 z-50 border-b border-primary/20">
       <div className="container-site">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -34,8 +34,8 @@ export function Header() {
             className="flex items-center space-x-3 font-semibold text-lg"
             aria-label="CSA San Francisco Chapter Home"
           >
-            <div className="w-8 h-8 bg-csa-blue rounded flex items-center justify-center">
-              <span className="text-white font-bold text-sm">CSA</span>
+            <div className="w-8 h-8 bg-white rounded flex items-center justify-center">
+              <span className="text-primary font-bold text-sm">CSA</span>
             </div>
             <span className="hidden sm:block">CSA San Francisco</span>
           </Link>
@@ -46,9 +46,9 @@ export function Header() {
               <Link
                 key={item.name}
                 to={item.href}
-                className={`text-sm font-medium transition-colors hover:text-csa-accent ${
+                className={`text-sm font-medium transition-colors hover:text-accent ${
                   isActive(item.href) 
-                    ? "text-csa-accent border-b-2 border-csa-accent pb-1" 
+                    ? "text-accent border-b-2 border-accent pb-1" 
                     : "text-white"
                 }`}
                 aria-current={isActive(item.href) ? "page" : undefined}
@@ -64,13 +64,13 @@ export function Header() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="md:hidden text-white hover:bg-csa-blue/20"
+                className="md:hidden text-white hover:bg-white/20"
                 aria-label="Open menu"
               >
                 <Menu className="h-6 w-6" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="top" className="bg-csa-navy border-csa-blue/20">
+            <SheetContent side="top" className="bg-primary border-primary/20">
               <div className="flex flex-col space-y-6 pt-6">
                 <div className="flex items-center justify-between">
                   <Link 
@@ -78,8 +78,8 @@ export function Header() {
                     className="flex items-center space-x-3 font-semibold text-lg text-white"
                     onClick={() => setIsOpen(false)}
                   >
-                    <div className="w-8 h-8 bg-csa-blue rounded flex items-center justify-center">
-                      <span className="text-white font-bold text-sm">CSA</span>
+                    <div className="w-8 h-8 bg-white rounded flex items-center justify-center">
+                      <span className="text-primary font-bold text-sm">CSA</span>
                     </div>
                     <span>CSA San Francisco</span>
                   </Link>
@@ -87,7 +87,7 @@ export function Header() {
                     variant="ghost"
                     size="icon"
                     onClick={() => setIsOpen(false)}
-                    className="text-white hover:bg-csa-blue/20"
+                    className="text-white hover:bg-white/20"
                     aria-label="Close menu"
                   >
                     <X className="h-6 w-6" />
@@ -99,8 +99,8 @@ export function Header() {
                       key={item.name}
                       to={item.href}
                       onClick={() => setIsOpen(false)}
-                      className={`text-lg font-medium transition-colors hover:text-csa-accent ${
-                        isActive(item.href) ? "text-csa-accent" : "text-white"
+                      className={`text-lg font-medium transition-colors hover:text-accent ${
+                        isActive(item.href) ? "text-accent" : "text-white"
                       }`}
                       aria-current={isActive(item.href) ? "page" : undefined}
                     >
