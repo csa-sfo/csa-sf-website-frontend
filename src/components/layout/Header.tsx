@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, X } from "lucide-react";
+import { AuthModal } from "@/components/auth/AuthModal";
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -17,11 +18,18 @@ const navigation = [
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [authModalOpen, setAuthModalOpen] = useState(false);
+  const [authMode, setAuthMode] = useState<"login" | "signup">("login");
   const location = useLocation();
 
   const isActive = (href: string) => {
     if (href === "/") return location.pathname === "/";
     return location.pathname.startsWith(href);
+  };
+
+  const handleAuthClick = (mode: "login" | "signup") => {
+    setAuthMode(mode);
+    setAuthModalOpen(true);
   };
 
   return (
@@ -37,27 +45,46 @@ export function Header() {
             <img 
               src="/lovable-uploads/f9f64043-c236-482e-acb2-d6a08e0612fc.png" 
               alt="CSA San Francisco Chapter logo" 
-              className="h-12"
+              className="h-16"
             />
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8" aria-label="Main navigation">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                to={item.href}
-                className={`text-sm font-medium transition-colors hover:text-accent ${
-                  isActive(item.href) 
-                    ? "text-accent border-b-2 border-accent pb-1" 
-                    : "text-primary"
-                }`}
-                aria-current={isActive(item.href) ? "page" : undefined}
+          <div className="hidden md:flex items-center space-x-8">
+            <nav className="flex items-center space-x-8" aria-label="Main navigation">
+              {navigation.map((item) => (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className={`text-sm font-medium transition-colors hover:text-accent ${
+                    isActive(item.href) 
+                      ? "text-accent border-b-2 border-accent pb-1" 
+                      : "text-primary"
+                  }`}
+                  aria-current={isActive(item.href) ? "page" : undefined}
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </nav>
+            
+            {/* Auth Buttons */}
+            <div className="flex items-center space-x-4">
+              <Button
+                variant="outline"
+                onClick={() => handleAuthClick("login")}
+                className="bg-orange-500 text-white border-orange-500 hover:bg-orange-600"
               >
-                {item.name}
-              </Link>
-            ))}
-          </nav>
+                Log In
+              </Button>
+              <Button
+                onClick={() => handleAuthClick("signup")}
+                className="bg-orange-500 text-white hover:bg-orange-600"
+              >
+                Sign Up
+              </Button>
+            </div>
+          </div>
 
           {/* Mobile Navigation */}
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
@@ -82,7 +109,7 @@ export function Header() {
                     <img 
                       src="/lovable-uploads/f9f64043-c236-482e-acb2-d6a08e0612fc.png" 
                       alt="CSA San Francisco Chapter logo" 
-                      className="h-12"
+                      className="h-16"
                     />
                   </Link>
                   <Button
@@ -110,11 +137,42 @@ export function Header() {
                     </Link>
                   ))}
                 </nav>
+                
+                {/* Mobile Auth Buttons */}
+                <div className="flex flex-col space-y-4 pt-4">
+                  <Button
+                    variant="outline"
+                    onClick={() => {
+                      setIsOpen(false);
+                      handleAuthClick("login");
+                    }}
+                    className="bg-orange-500 text-white border-orange-500 hover:bg-orange-600"
+                  >
+                    Log In
+                  </Button>
+                  <Button
+                    onClick={() => {
+                      setIsOpen(false);
+                      handleAuthClick("signup");
+                    }}
+                    className="bg-orange-500 text-white hover:bg-orange-600"
+                  >
+                    Sign Up
+                  </Button>
+                </div>
               </div>
             </SheetContent>
           </Sheet>
         </div>
       </div>
+
+      {/* Auth Modal */}
+      <AuthModal
+        isOpen={authModalOpen}
+        onClose={() => setAuthModalOpen(false)}
+        mode={authMode}
+        onModeChange={setAuthMode}
+      />
     </header>
   );
 }
