@@ -10,10 +10,11 @@ export function Footer() {
           {/* About Section */}
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-csa-blue rounded flex items-center justify-center">
-                <span className="text-white font-bold text-sm">CSA</span>
-              </div>
-              <span className="font-semibold">CSA San Francisco</span>
+              <img 
+                src="/lovable-uploads/f9f64043-c236-482e-acb2-d6a08e0612fc.png" 
+                alt="CSA San Francisco Chapter logo" 
+                className="h-8"
+              />
             </div>
             <p className="text-sm text-gray-300 leading-relaxed">
               The San Francisco Chapter of the Cloud Security Alliance promotes 
