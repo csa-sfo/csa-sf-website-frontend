@@ -35,13 +35,13 @@ export default function Index() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-primary to-secondary text-white overflow-hidden">
-        {/* Background Image - zoomed in to show full bridge */}
+        {/* Background Image - zoomed in more to show full bridge */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: `url('/lovable-uploads/cc966b67-e195-47f4-9d87-2b8757659a42.png')`,
             backgroundSize: 'cover',
-            transform: 'scale(1.1)'
+            transform: 'scale(1.3)'
           }}
         />
         {/* Lighter overlay for more white background */}
