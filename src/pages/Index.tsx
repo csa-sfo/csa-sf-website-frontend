@@ -36,13 +36,13 @@ export default function Index() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-primary to-secondary text-white overflow-hidden">
-        {/* Background Image - zoomed out */}
+        {/* Background Image - zoomed out more to show full bridge */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: `url('/lovable-uploads/cc966b67-e195-47f4-9d87-2b8757659a42.png')`,
             backgroundSize: 'cover',
-            transform: 'scale(1.2)'
+            transform: 'scale(1.5)'
           }}
         />
         {/* Lighter overlay for more white background */}
@@ -51,8 +51,8 @@ export default function Index() {
         
         <div className="relative container-site py-20 lg:py-32">
           <div className="max-w-4xl animate-fade-in">
-            <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6 text-shadow-lg text-gray-800">
-              Advancing Cloud Security in the{" "}
+            <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6 text-shadow-lg">
+              <span className="text-primary">Advancing Cloud Security in the</span>{" "}
               <span className="text-accent">Bay Area</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-700 mb-8 leading-relaxed drop-shadow-md">
