@@ -13,7 +13,7 @@ export function Footer() {
               <img 
                 src="/lovable-uploads/f9f64043-c236-482e-acb2-d6a08e0612fc.png" 
                 alt="CSA San Francisco Chapter logo" 
-                className="h-8"
+                className="h-12"
               />
             </div>
             <p className="text-sm text-gray-300 leading-relaxed">
