@@ -16,12 +16,12 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    /* Blue from "Why" image as primary */
-    --primary: 206 100% 45%;  /* #0073E6 */
+    /* New blue #367ABB as primary */
+    --primary: 209 54% 48%;  /* #367ABB */
     --primary-foreground: 0 0% 100%;
 
     /* Darker blue as secondary */
-    --secondary: 206 100% 35%;  /* #0059B3 */
+    --secondary: 209 54% 38%;  /* Darker version of #367ABB */
     --secondary-foreground: 0 0% 100%;
 
     --muted: 210 40% 96.1%;
@@ -36,7 +36,7 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 206 100% 45%;
+    --ring: 209 54% 48%;
 
     --radius: 0.5rem;
 

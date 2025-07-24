@@ -64,8 +64,8 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				// Updated CSA Brand Colors
-				'csa-blue': '#0073E6',
-				'csa-navy': '#0059B3',
+				'csa-blue': '#367ABB',
+				'csa-navy': '#2B5F8A',
 				'csa-accent': '#FF8C1A',
 				'csa-light': '#F7F9FC'
 			},
