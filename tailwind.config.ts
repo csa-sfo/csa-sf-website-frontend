@@ -63,10 +63,10 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// CSA Brand Colors
-				'csa-blue': '#005EB8',
-				'csa-navy': '#003C75',
-				'csa-accent': '#00A6D6',
+				// Updated CSA Brand Colors
+				'csa-blue': '#0073E6',
+				'csa-navy': '#0059B3',
+				'csa-accent': '#FF8C1A',
 				'csa-light': '#F7F9FC'
 			},
 			borderRadius: {

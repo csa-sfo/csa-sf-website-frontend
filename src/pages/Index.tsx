@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -34,7 +35,7 @@ export default function Index() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-csa-blue to-csa-navy text-white overflow-hidden">
+      <section className="relative bg-gradient-to-br from-primary to-secondary text-white overflow-hidden">
         {/* Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -43,14 +44,14 @@ export default function Index() {
           }}
         />
         {/* Overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-br from-csa-blue/80 to-csa-navy/80"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/80 to-secondary/80"></div>
         <div className="absolute inset-0 bg-black/30"></div>
         
         <div className="relative container-site py-20 lg:py-32">
           <div className="max-w-4xl animate-fade-in">
             <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6 text-shadow-lg">
               Advancing Cloud Security in the{" "}
-              <span className="text-csa-accent">Bay Area</span>
+              <span className="text-accent">Bay Area</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-100 mb-8 leading-relaxed drop-shadow-md">
               Join San Francisco's premier community of cloud security professionals. 
@@ -60,14 +61,14 @@ export default function Index() {
               <Button 
                 asChild 
                 size="lg" 
-                className="bg-csa-accent hover:bg-csa-accent/90 text-white text-lg px-8 py-3 shadow-lg"
+                className="bg-accent hover:bg-accent/90 text-white text-lg px-8 py-3 shadow-lg"
               >
                 <Link to="/events">View Upcoming Events</Link>
               </Button>
               <Button 
                 asChild 
                 size="lg" 
-                className="bg-csa-accent hover:bg-csa-accent/90 text-white text-lg px-8 py-3 shadow-lg"
+                className="bg-accent hover:bg-accent/90 text-white text-lg px-8 py-3 shadow-lg"
               >
                 <Link to="/get-involved">Join Our Community</Link>
               </Button>
@@ -86,8 +87,8 @@ export default function Index() {
                 className="text-center animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <stat.icon className="h-8 w-8 text-csa-blue mx-auto mb-4" />
-                <div className="text-3xl font-bold text-csa-navy mb-2">{stat.value}</div>
+                <stat.icon className="h-8 w-8 text-primary mx-auto mb-4" />
+                <div className="text-3xl font-bold text-secondary mb-2">{stat.value}</div>
                 <div className="text-gray-600">{stat.label}</div>
               </div>
             ))}
@@ -100,7 +101,7 @@ export default function Index() {
         <div className="container-site">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-csa-navy mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
                 Next Chapter Meeting
               </h2>
               <p className="text-lg text-gray-600">
@@ -109,7 +110,7 @@ export default function Index() {
             </div>
 
             <Card className="overflow-hidden shadow-lg animate-fade-in">
-              <CardHeader className="bg-gradient-to-r from-csa-blue to-csa-navy text-white">
+              <CardHeader className="bg-gradient-to-r from-primary to-secondary text-white">
                 <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
                   <div>
                     <CardTitle className="text-2xl mb-2">{upcomingEvent.title}</CardTitle>
@@ -120,7 +121,7 @@ export default function Index() {
                   <Button 
                     asChild 
                     size="lg"
-                    className="bg-csa-accent hover:bg-csa-accent/90 text-white whitespace-nowrap"
+                    className="bg-accent hover:bg-accent/90 text-white whitespace-nowrap"
                   >
                     <Link to={`/events/${upcomingEvent.slug}`}>
                       Register Now
@@ -132,7 +133,7 @@ export default function Index() {
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-4">
                     <div className="flex items-center space-x-3 text-gray-700">
-                      <Calendar className="h-5 w-5 text-csa-blue" />
+                      <Calendar className="h-5 w-5 text-primary" />
                       <span className="font-medium">
                         {eventDate.toLocaleDateString('en-US', {
                           weekday: 'long',
@@ -146,13 +147,13 @@ export default function Index() {
                       </span>
                     </div>
                     <div className="flex items-start space-x-3 text-gray-700">
-                      <MapPin className="h-5 w-5 text-csa-blue mt-0.5" />
+                      <MapPin className="h-5 w-5 text-primary mt-0.5" />
                       <span>{upcomingEvent.location}</span>
                     </div>
                   </div>
                   <div className="space-y-4">
                     <div>
-                      <h4 className="font-semibold text-csa-navy mb-2">Featured Speakers</h4>
+                      <h4 className="font-semibold text-secondary mb-2">Featured Speakers</h4>
                       <div className="space-y-1">
                         {upcomingEvent.speakers.map(speaker => (
                           <div key={speaker} className="text-gray-700">{speaker}</div>
@@ -160,10 +161,10 @@ export default function Index() {
                       </div>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-csa-navy mb-2">Topics</h4>
+                      <h4 className="font-semibold text-secondary mb-2">Topics</h4>
                       <div className="flex flex-wrap gap-2">
                         {upcomingEvent.tags.map(tag => (
-                          <Badge key={tag} variant="secondary" className="bg-csa-blue/10 text-csa-blue">
+                          <Badge key={tag} variant="secondary" className="bg-primary/10 text-primary">
                             {tag}
                           </Badge>
                         ))}
@@ -181,7 +182,7 @@ export default function Index() {
       <section className="py-16 bg-white">
         <div className="container-site">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-csa-navy mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
               Our Partners
             </h2>
             <p className="text-lg text-gray-600">
@@ -208,7 +209,7 @@ export default function Index() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-csa-navy to-csa-blue text-white">
+      <section className="py-16 bg-gradient-to-r from-secondary to-primary text-white">
         <div className="container-site text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Ready to Join Our Community?
@@ -221,14 +222,14 @@ export default function Index() {
             <Button 
               asChild 
               size="lg" 
-              className="bg-csa-accent hover:bg-csa-accent/90 text-white text-lg px-8 py-3"
+              className="bg-accent hover:bg-accent/90 text-white text-lg px-8 py-3"
             >
               <Link to="/get-involved">Get Involved</Link>
             </Button>
             <Button 
               asChild 
               size="lg" 
-              className="bg-csa-accent hover:bg-csa-accent/90 text-white text-lg px-8 py-3"
+              className="bg-accent hover:bg-accent/90 text-white text-lg px-8 py-3"
             >
               <Link to="/about">Learn More</Link>
             </Button>
