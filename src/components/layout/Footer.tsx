@@ -1,10 +1,9 @@
-
 import { Link } from "react-router-dom";
 import { Calendar, Mail, MapPin, ExternalLink } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="bg-csa-navy text-white">
+    <footer className="bg-csa-blue text-white">
       <div className="container-site py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* About Section */}
