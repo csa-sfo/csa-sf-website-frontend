@@ -25,7 +25,7 @@ export function Header() {
   };
 
   return (
-    <header className="bg-primary text-white sticky top-0 z-50 border-b border-primary/20">
+    <header className="bg-transparent text-primary sticky top-0 z-50 border-b border-primary/20">
       <div className="container-site">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -50,7 +50,7 @@ export function Header() {
                 className={`text-sm font-medium transition-colors hover:text-accent ${
                   isActive(item.href) 
                     ? "text-accent border-b-2 border-accent pb-1" 
-                    : "text-white"
+                    : "text-primary"
                 }`}
                 aria-current={isActive(item.href) ? "page" : undefined}
               >
@@ -65,7 +65,7 @@ export function Header() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="md:hidden text-white hover:bg-white/20"
+                className="md:hidden text-primary hover:bg-primary/20"
                 aria-label="Open menu"
               >
                 <Menu className="h-6 w-6" />
