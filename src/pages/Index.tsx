@@ -35,14 +35,24 @@ export default function Index() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-csa-blue to-csa-navy text-white overflow-hidden">
-        <div className="absolute inset-0 bg-black/20"></div>
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('/lovable-uploads/1191eaeb-dd3f-4150-986c-937988643da2.png')`
+          }}
+        />
+        {/* Overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-br from-csa-blue/80 to-csa-navy/80"></div>
+        <div className="absolute inset-0 bg-black/30"></div>
+        
         <div className="relative container-site py-20 lg:py-32">
           <div className="max-w-4xl animate-fade-in">
-            <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6 text-shadow-lg">
               Advancing Cloud Security in the{" "}
               <span className="text-csa-accent">Bay Area</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-100 mb-8 leading-relaxed">
+            <p className="text-xl md:text-2xl text-gray-100 mb-8 leading-relaxed drop-shadow-md">
               Join San Francisco's premier community of cloud security professionals. 
               Connect, learn, and shape the future of cloud security together.
             </p>
@@ -50,14 +60,14 @@ export default function Index() {
               <Button 
                 asChild 
                 size="lg" 
-                className="bg-csa-accent hover:bg-csa-accent/90 text-white text-lg px-8 py-3"
+                className="bg-csa-accent hover:bg-csa-accent/90 text-white text-lg px-8 py-3 shadow-lg"
               >
                 <Link to="/events">View Upcoming Events</Link>
               </Button>
               <Button 
                 asChild 
                 size="lg" 
-                className="bg-csa-accent hover:bg-csa-accent/90 text-white text-lg px-8 py-3"
+                className="bg-csa-accent hover:bg-csa-accent/90 text-white text-lg px-8 py-3 shadow-lg"
               >
                 <Link to="/get-involved">Join Our Community</Link>
               </Button>
