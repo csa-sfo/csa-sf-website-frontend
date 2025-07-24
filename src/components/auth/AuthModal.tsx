@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
-import { Apple, Mail, Lock, User } from "lucide-react";
+import { Mail, Lock, User } from "lucide-react";
 
 interface AuthModalProps {
   isOpen: boolean;
@@ -70,14 +70,6 @@ export function AuthModal({ isOpen, onClose, mode, onModeChange }: AuthModalProp
           <div className="space-y-3">
             <Button
               variant="outline"
-              className="w-full flex items-center justify-center space-x-3 h-12 bg-gray-800 text-white hover:bg-gray-700 border-gray-800"
-            >
-              <Apple className="w-5 h-5" />
-              <span>LOG IN WITH APPLE</span>
-            </Button>
-
-            <Button
-              variant="outline"
               className="w-full flex items-center justify-center space-x-3 h-12 bg-blue-600 text-white hover:bg-blue-700 border-blue-600"
             >
               <div className="w-5 h-5 bg-white rounded-sm flex items-center justify-center">
@@ -94,16 +86,6 @@ export function AuthModal({ isOpen, onClose, mode, onModeChange }: AuthModalProp
                 <span className="text-blue-700 font-bold text-sm">in</span>
               </div>
               <span>LOG IN WITH LINKEDIN</span>
-            </Button>
-
-            <Button
-              variant="outline"
-              className="w-full flex items-center justify-center space-x-3 h-12 bg-blue-600 text-white hover:bg-blue-700 border-blue-600"
-            >
-              <div className="w-5 h-5 bg-white rounded-sm flex items-center justify-center">
-                <span className="text-blue-600 font-bold text-xs">⊞</span>
-              </div>
-              <span>LOG IN WITH MICROSOFT ACCOUNT</span>
             </Button>
           </div>
 

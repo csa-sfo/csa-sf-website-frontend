@@ -19,7 +19,7 @@ const navigation = [
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [authModalOpen, setAuthModalOpen] = useState(false);
-  const [authMode, setAuthMode] = useState<"login" | "signup">("login");
+  const [authMode, setAuthMode] = useState<"login" | "signup">("signup");
   const location = useLocation();
 
   const isActive = (href: string) => {
@@ -27,8 +27,7 @@ export function Header() {
     return location.pathname.startsWith(href);
   };
 
-  const handleAuthClick = (mode: "login" | "signup") => {
-    setAuthMode(mode);
+  const handleAuthClick = () => {
     setAuthModalOpen(true);
   };
 
@@ -45,7 +44,7 @@ export function Header() {
             <img 
               src="/lovable-uploads/f9f64043-c236-482e-acb2-d6a08e0612fc.png" 
               alt="CSA San Francisco Chapter logo" 
-              className="h-16"
+              className="h-20"
             />
           </Link>
 
@@ -68,17 +67,10 @@ export function Header() {
               ))}
             </nav>
             
-            {/* Auth Buttons */}
-            <div className="flex items-center space-x-4">
+            {/* Auth Button */}
+            <div className="flex items-center">
               <Button
-                variant="outline"
-                onClick={() => handleAuthClick("login")}
-                className="bg-orange-500 text-white border-orange-500 hover:bg-orange-600"
-              >
-                Log In
-              </Button>
-              <Button
-                onClick={() => handleAuthClick("signup")}
+                onClick={handleAuthClick}
                 className="bg-orange-500 text-white hover:bg-orange-600"
               >
                 Sign Up
@@ -109,7 +101,7 @@ export function Header() {
                     <img 
                       src="/lovable-uploads/f9f64043-c236-482e-acb2-d6a08e0612fc.png" 
                       alt="CSA San Francisco Chapter logo" 
-                      className="h-16"
+                      className="h-20"
                     />
                   </Link>
                   <Button
@@ -138,22 +130,12 @@ export function Header() {
                   ))}
                 </nav>
                 
-                {/* Mobile Auth Buttons */}
+                {/* Mobile Auth Button */}
                 <div className="flex flex-col space-y-4 pt-4">
                   <Button
-                    variant="outline"
                     onClick={() => {
                       setIsOpen(false);
-                      handleAuthClick("login");
-                    }}
-                    className="bg-orange-500 text-white border-orange-500 hover:bg-orange-600"
-                  >
-                    Log In
-                  </Button>
-                  <Button
-                    onClick={() => {
-                      setIsOpen(false);
-                      handleAuthClick("signup");
+                      handleAuthClick();
                     }}
                     className="bg-orange-500 text-white hover:bg-orange-600"
                   >
