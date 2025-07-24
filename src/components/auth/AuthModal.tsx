@@ -34,7 +34,7 @@ export function AuthModal({ isOpen, onClose, mode, onModeChange }: AuthModalProp
             <img 
               src="/lovable-uploads/f9f64043-c236-482e-acb2-d6a08e0612fc.png" 
               alt="CSA Logo" 
-              className="h-12 w-12 object-contain"
+              className="h-16 w-16 object-contain"
             />
           </div>
           <DialogTitle className="text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
@@ -188,18 +188,6 @@ export function AuthModal({ isOpen, onClose, mode, onModeChange }: AuthModalProp
               {mode === "login" ? "Sign In" : "Create Account"}
             </Button>
           </form>
-
-          {/* Additional Info */}
-          <div className="text-center text-xs text-gray-600">
-            <p className="leading-relaxed">
-              For enhanced security, we recommend using one of the social login options above for multi-factor authentication.
-            </p>
-            {mode === "signup" && (
-              <p className="mt-2 text-xs text-gray-500">
-                By creating an account, you agree to our Terms of Service and Privacy Policy.
-              </p>
-            )}
-          </div>
         </div>
       </DialogContent>
     </Dialog>
