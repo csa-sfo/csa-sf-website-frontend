@@ -40,12 +40,12 @@ export default function Index() {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('/lovable-uploads/9e36c11c-ce91-45df-b65b-3c384ebe4566.png')`
+            backgroundImage: `url('/lovable-uploads/cc966b67-e195-47f4-9d87-2b8757659a42.png')`
           }}
         />
-        {/* Adjusted overlay for better readability with the new bridge image */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/60"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/30"></div>
+        {/* Overlay optimized for the new bridge image */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/40"></div>
         
         <div className="relative container-site py-20 lg:py-32">
           <div className="max-w-4xl animate-fade-in">
