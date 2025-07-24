@@ -43,15 +43,15 @@ export default function Index() {
             backgroundImage: `url('/lovable-uploads/1191eaeb-dd3f-4150-986c-937988643da2.png')`
           }}
         />
-        {/* Overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/80 to-secondary/80"></div>
-        <div className="absolute inset-0 bg-black/30"></div>
+        {/* Lighter overlay for more white appearance */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/40 to-secondary/40"></div>
+        <div className="absolute inset-0 bg-black/10"></div>
         
         <div className="relative container-site py-20 lg:py-32">
           <div className="max-w-4xl animate-fade-in">
             <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6 text-shadow-lg">
               Advancing Cloud Security in the{" "}
-              <span className="text-accent">Bay Area</span>
+              <span className="text-white">Bay Area</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-100 mb-8 leading-relaxed drop-shadow-md">
               Join San Francisco's premier community of cloud security professionals. 
