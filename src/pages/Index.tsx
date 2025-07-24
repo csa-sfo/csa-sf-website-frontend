@@ -40,18 +40,18 @@ export default function Index() {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('/lovable-uploads/1191eaeb-dd3f-4150-986c-937988643da2.png')`
+            backgroundImage: `url('/lovable-uploads/9e36c11c-ce91-45df-b65b-3c384ebe4566.png')`
           }}
         />
-        {/* Lighter overlay for more white appearance */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/40 to-secondary/40"></div>
-        <div className="absolute inset-0 bg-black/10"></div>
+        {/* Adjusted overlay for better readability with the new bridge image */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/60"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/30"></div>
         
         <div className="relative container-site py-20 lg:py-32">
           <div className="max-w-4xl animate-fade-in">
             <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6 text-shadow-lg">
               Advancing Cloud Security in the{" "}
-              <span className="text-white">Bay Area</span>
+              <span className="text-accent">Bay Area</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-100 mb-8 leading-relaxed drop-shadow-md">
               Join San Francisco's premier community of cloud security professionals. 
@@ -61,14 +61,14 @@ export default function Index() {
               <Button 
                 asChild 
                 size="lg" 
-                className="bg-accent hover:bg-accent/90 text-white text-lg px-8 py-3 shadow-lg"
+                className="text-lg px-8 py-3 shadow-lg"
               >
                 <Link to="/events">View Upcoming Events</Link>
               </Button>
               <Button 
                 asChild 
                 size="lg" 
-                className="bg-accent hover:bg-accent/90 text-white text-lg px-8 py-3 shadow-lg"
+                className="text-lg px-8 py-3 shadow-lg"
               >
                 <Link to="/get-involved">Join Our Community</Link>
               </Button>
