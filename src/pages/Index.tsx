@@ -210,12 +210,12 @@ export default function Index() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-secondary to-primary text-white">
+      <section className="py-16 section-light">
         <div className="container-site text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-secondary">
             Ready to Join Our Community?
           </h2>
-          <p className="text-xl text-gray-100 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
             Connect with cloud security professionals, attend exclusive events, 
             and stay ahead of the latest industry trends.
           </p>
@@ -230,7 +230,7 @@ export default function Index() {
             <Button 
               asChild 
               size="lg" 
-              className="bg-accent hover:bg-accent/90 text-white text-lg px-8 py-3"
+              className="bg-primary hover:bg-primary/90 text-white text-lg px-8 py-3"
             >
               <Link to="/about">Learn More</Link>
             </Button>
