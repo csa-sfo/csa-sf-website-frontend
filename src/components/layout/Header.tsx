@@ -44,7 +44,7 @@ export function Header() {
             <img 
               src="/lovable-uploads/f9f64043-c236-482e-acb2-d6a08e0612fc.png" 
               alt="CSA San Francisco Chapter logo" 
-              className="h-20"
+              className="h-12"
             />
           </Link>
 
@@ -101,7 +101,7 @@ export function Header() {
                     <img 
                       src="/lovable-uploads/f9f64043-c236-482e-acb2-d6a08e0612fc.png" 
                       alt="CSA San Francisco Chapter logo" 
-                      className="h-20"
+                      className="h-12"
                     />
                   </Link>
                   <Button

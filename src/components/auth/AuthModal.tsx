@@ -34,7 +34,7 @@ export function AuthModal({ isOpen, onClose, mode, onModeChange }: AuthModalProp
             <img 
               src="/lovable-uploads/f9f64043-c236-482e-acb2-d6a08e0612fc.png" 
               alt="CSA Logo" 
-              className="h-16 w-16 object-contain"
+              className="h-32 w-32 object-contain"
             />
           </div>
           <DialogTitle className="text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
