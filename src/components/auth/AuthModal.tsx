@@ -29,23 +29,17 @@ export function AuthModal({ isOpen, onClose, mode, onModeChange }: AuthModalProp
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-sm bg-white border-0 shadow-2xl">
-        <DialogHeader className="text-center space-y-4 pb-2">
+        <DialogHeader className="text-center space-y-6 pb-4">
           <div className="flex justify-center">
             <img 
               src="/lovable-uploads/f9f64043-c236-482e-acb2-d6a08e0612fc.png" 
               alt="CSA Logo" 
-              className="h-36 w-36 object-contain"
+              className="h-48 w-48 object-contain"
             />
           </div>
-          <DialogTitle className="text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-            {mode === "login" ? "Welcome back" : "Join CSA"}
+          <DialogTitle className="sr-only">
+            {mode === "login" ? "Sign in" : "Sign up"}
           </DialogTitle>
-          <p className="text-gray-600 text-sm">
-            {mode === "login" 
-              ? "Sign in to access your account" 
-              : "Create your account to get started"
-            }
-          </p>
         </DialogHeader>
 
         <div className="space-y-4">
