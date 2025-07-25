@@ -96,6 +96,18 @@
 
   body {
     @apply bg-background text-foreground font-sans;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Improved mobile touch targets */
+  button, a {
+    @apply touch-manipulation;
+  }
+
+  /* Prevent horizontal scroll on mobile */
+  html, body {
+    overflow-x: hidden;
   }
 
   /* Accessibility - Reduced motion */
@@ -112,7 +124,7 @@
 
 @layer utilities {
   .container-site {
-    @apply max-w-site mx-auto px-6;
+    @apply max-w-site mx-auto px-4 sm:px-6;
   }
   
   .section-light {
@@ -121,5 +133,31 @@
   
   .text-shadow-lg {
     text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Mobile-first responsive utilities */
+  .mobile-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+
+  .mobile-text {
+    @apply text-sm sm:text-base;
+  }
+
+  .mobile-heading {
+    @apply text-lg sm:text-xl md:text-2xl;
+  }
+}
+
+/* Mobile-specific improvements */
+@media (max-width: 640px) {
+  .container-site {
+    @apply px-4;
+  }
+  
+  /* Ensure dialogs don't exceed viewport */
+  [data-radix-dialog-content] {
+    max-height: 90vh;
+    overflow-y: auto;
   }
 }

@@ -34,23 +34,23 @@ export function Header() {
   return (
     <header className="bg-white text-primary sticky top-0 z-50 border-b border-primary/20">
       <div className="container-site">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-14 sm:h-16">
           {/* Logo */}
           <Link 
             to="/" 
-            className="flex items-center space-x-3 font-semibold text-lg"
+            className="flex items-center space-x-2 sm:space-x-3 font-semibold text-base sm:text-lg"
             aria-label="CSA San Francisco Chapter Home"
           >
             <img 
               src="/lovable-uploads/f9f64043-c236-482e-acb2-d6a08e0612fc.png" 
               alt="CSA San Francisco Chapter logo" 
-              className="h-12"
+              className="h-8 sm:h-10 md:h-12"
             />
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            <nav className="flex items-center space-x-8" aria-label="Main navigation">
+          <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
+            <nav className="flex items-center space-x-6 xl:space-x-8" aria-label="Main navigation">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
@@ -71,7 +71,7 @@ export function Header() {
             <div className="flex items-center">
               <Button
                 onClick={handleAuthClick}
-                className="bg-orange-500 text-white hover:bg-orange-600"
+                className="bg-orange-500 text-white hover:bg-orange-600 px-4 py-2 text-sm"
               >
                 Sign Up
               </Button>
@@ -84,44 +84,44 @@ export function Header() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="md:hidden text-primary hover:bg-primary/20"
+                className="lg:hidden text-primary hover:bg-primary/20 h-8 w-8 sm:h-10 sm:w-10"
                 aria-label="Open menu"
               >
-                <Menu className="h-6 w-6" />
+                <Menu className="h-5 w-5 sm:h-6 sm:w-6" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="top" className="bg-primary border-primary/20">
-              <div className="flex flex-col space-y-6 pt-6">
+            <SheetContent side="top" className="bg-primary border-primary/20 w-full">
+              <div className="flex flex-col space-y-4 sm:space-y-6 pt-4 sm:pt-6">
                 <div className="flex items-center justify-between">
                   <Link 
                     to="/" 
-                    className="flex items-center space-x-3 font-semibold text-lg text-white"
+                    className="flex items-center space-x-2 sm:space-x-3 font-semibold text-base sm:text-lg text-white"
                     onClick={() => setIsOpen(false)}
                   >
                     <img 
                       src="/lovable-uploads/f9f64043-c236-482e-acb2-d6a08e0612fc.png" 
                       alt="CSA San Francisco Chapter logo" 
-                      className="h-12"
+                      className="h-8 sm:h-10 md:h-12"
                     />
                   </Link>
                   <Button
                     variant="ghost"
                     size="icon"
                     onClick={() => setIsOpen(false)}
-                    className="text-white hover:bg-white/20"
+                    className="text-white hover:bg-white/20 h-8 w-8 sm:h-10 sm:w-10"
                     aria-label="Close menu"
                   >
-                    <X className="h-6 w-6" />
+                    <X className="h-5 w-5 sm:h-6 sm:w-6" />
                   </Button>
                 </div>
-                <nav className="flex flex-col space-y-4" aria-label="Mobile navigation">
+                <nav className="flex flex-col space-y-3 sm:space-y-4" aria-label="Mobile navigation">
                   {navigation.map((item) => (
                     <Link
                       key={item.name}
                       to={item.href}
                       onClick={() => setIsOpen(false)}
-                      className={`text-lg font-medium transition-colors hover:text-accent ${
-                        isActive(item.href) ? "text-accent" : "text-white"
+                      className={`text-base sm:text-lg font-medium transition-colors hover:text-accent py-2 px-4 rounded-md ${
+                        isActive(item.href) ? "text-accent bg-white/10" : "text-white"
                       }`}
                       aria-current={isActive(item.href) ? "page" : undefined}
                     >
@@ -131,13 +131,13 @@ export function Header() {
                 </nav>
                 
                 {/* Mobile Auth Button */}
-                <div className="flex flex-col space-y-4 pt-4">
+                <div className="flex flex-col space-y-3 sm:space-y-4 pt-4 border-t border-white/20">
                   <Button
                     onClick={() => {
                       setIsOpen(false);
                       handleAuthClick();
                     }}
-                    className="bg-orange-500 text-white hover:bg-orange-600"
+                    className="bg-orange-500 text-white hover:bg-orange-600 w-full py-3 text-base font-medium"
                   >
                     Sign Up
                   </Button>
