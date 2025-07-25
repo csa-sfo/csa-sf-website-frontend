@@ -29,7 +29,7 @@ export function AuthModal({ isOpen, onClose, mode, onModeChange }: AuthModalProp
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-sm bg-white border-0 shadow-2xl">
-        <DialogHeader className="text-center space-y-6 pb-4">
+        <DialogHeader className="text-center space-y-3 pb-2">
           <div className="flex justify-center">
             <img 
               src="/lovable-uploads/f9f64043-c236-482e-acb2-d6a08e0612fc.png" 
@@ -42,7 +42,7 @@ export function AuthModal({ isOpen, onClose, mode, onModeChange }: AuthModalProp
           </DialogTitle>
         </DialogHeader>
 
-        <div className="space-y-4">
+        <div className="space-y-3">
           {/* Tab Navigation */}
           <div className="flex bg-gray-50 rounded-lg p-1">
             <button
@@ -91,7 +91,7 @@ export function AuthModal({ isOpen, onClose, mode, onModeChange }: AuthModalProp
           </div>
 
           <div className="relative">
-            <Separator className="my-4" />
+            <Separator className="my-3" />
             <div className="absolute inset-0 flex items-center justify-center">
               <span className="bg-white px-3 text-xs text-gray-500 font-medium">
                 or continue with email
@@ -100,9 +100,9 @@ export function AuthModal({ isOpen, onClose, mode, onModeChange }: AuthModalProp
           </div>
 
           {/* Email/Password Form */}
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-3">
             {mode === "signup" && (
-              <div className="space-y-2">
+              <div className="space-y-1">
                 <Label htmlFor="name" className="text-sm font-medium text-gray-700">
                   Full Name
                 </Label>
@@ -121,7 +121,7 @@ export function AuthModal({ isOpen, onClose, mode, onModeChange }: AuthModalProp
               </div>
             )}
 
-            <div className="space-y-2">
+            <div className="space-y-1">
               <Label htmlFor="email" className="text-sm font-medium text-gray-700">
                 Email Address
               </Label>
@@ -139,7 +139,7 @@ export function AuthModal({ isOpen, onClose, mode, onModeChange }: AuthModalProp
               </div>
             </div>
 
-            <div className="space-y-2">
+            <div className="space-y-1">
               <Label htmlFor="password" className="text-sm font-medium text-gray-700">
                 Password
               </Label>
