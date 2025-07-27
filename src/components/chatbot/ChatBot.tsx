@@ -14,6 +14,7 @@ interface Message {
   text: string;
   sender: 'user' | 'bot';
   timestamp: Date;
+  isTyping?: boolean;
 }
 
 interface ChatBotProps {
@@ -54,16 +55,45 @@ const ChatBot: React.FC<ChatBotProps> = ({ isOpen, onToggle }) => {
     setInputText('');
     setIsTyping(true);
 
-    // Simulate bot response
+    // Simulate bot response with typing effect
     setTimeout(() => {
+      const botResponse = getBotResponse(inputText);
       const botMessage: Message = {
         id: (Date.now() + 1).toString(),
-        text: getBotResponse(inputText),
+        text: '',
         sender: 'bot',
-        timestamp: new Date()
+        timestamp: new Date(),
+        isTyping: true
       };
+      
       setMessages(prev => [...prev, botMessage]);
       setIsTyping(false);
+      
+      // Simulate typing effect
+      let currentText = '';
+      let index = 0;
+      const typingInterval = setInterval(() => {
+        if (index < botResponse.length) {
+          currentText += botResponse[index];
+          setMessages(prev => 
+            prev.map(msg => 
+              msg.id === botMessage.id 
+                ? { ...msg, text: currentText }
+                : msg
+            )
+          );
+          index++;
+        } else {
+          clearInterval(typingInterval);
+          setMessages(prev => 
+            prev.map(msg => 
+              msg.id === botMessage.id 
+                ? { ...msg, isTyping: false }
+                : msg
+            )
+          );
+        }
+      }, 30);
     }, 1000);
   };
 
@@ -87,17 +117,17 @@ const ChatBot: React.FC<ChatBotProps> = ({ isOpen, onToggle }) => {
 
   return (
     <div className="fixed bottom-4 right-4 z-50 w-80 sm:w-96 animate-slide-in-right">
-      <Card className="shadow-2xl border-csa-blue/20">
-        <CardHeader className="bg-gradient-to-r from-csa-blue to-csa-navy text-white p-4">
+      <Card className="shadow-2xl border-0 bg-white/10 backdrop-blur-xl border-white/20">
+        <CardHeader className="bg-gradient-to-r from-csa-blue/90 to-csa-navy/90 backdrop-blur-md text-white p-4 border-b border-white/10">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <Avatar className="h-10 w-10 border-2 border-white/20">
+              <Avatar className="h-10 w-10 border-2 border-white/30 bg-white/10 backdrop-blur-sm">
                 <AvatarImage src="/lovable-uploads/f645724d-2997-4759-9410-c49a14d80693.png" alt="CSA Bot" />
-                <AvatarFallback className="bg-csa-accent text-white">CSA</AvatarFallback>
+                <AvatarFallback className="bg-csa-accent/80 text-white backdrop-blur-sm">CSA</AvatarFallback>
               </Avatar>
               <div>
                 <CardTitle className="text-lg">CSA Bot</CardTitle>
-                <Badge variant="secondary" className="bg-green-500/20 text-green-100 text-xs">
+                <Badge variant="secondary" className="bg-green-500/30 text-green-100 text-xs backdrop-blur-sm border border-green-400/20">
                   Online
                 </Badge>
               </div>
@@ -107,7 +137,7 @@ const ChatBot: React.FC<ChatBotProps> = ({ isOpen, onToggle }) => {
                 variant="ghost"
                 size="sm"
                 onClick={onToggle}
-                className="text-white hover:bg-white/10 h-8 w-8 p-0"
+                className="text-white hover:bg-white/10 backdrop-blur-sm h-8 w-8 p-0"
               >
                 <Minimize2 className="h-4 w-4" />
               </Button>
@@ -115,14 +145,14 @@ const ChatBot: React.FC<ChatBotProps> = ({ isOpen, onToggle }) => {
                 variant="ghost"
                 size="sm"
                 onClick={onToggle}
-                className="text-white hover:bg-white/10 h-8 w-8 p-0"
+                className="text-white hover:bg-white/10 backdrop-blur-sm h-8 w-8 p-0"
               >
                 <X className="h-4 w-4" />
               </Button>
             </div>
           </div>
         </CardHeader>
-        <CardContent className="p-0">
+        <CardContent className="p-0 bg-white/5 backdrop-blur-xl">
           <ScrollArea className="h-80 p-4" ref={scrollAreaRef}>
             <div className="space-y-4">
               {messages.map((message) => (
@@ -135,19 +165,22 @@ const ChatBot: React.FC<ChatBotProps> = ({ isOpen, onToggle }) => {
                 >
                   <div
                     className={cn(
-                      "max-w-[75%] rounded-2xl px-4 py-2 text-sm",
+                      "max-w-[75%] rounded-2xl px-4 py-2 text-sm backdrop-blur-sm",
                       message.sender === 'user'
-                        ? "bg-csa-blue text-white"
-                        : "bg-csa-light text-gray-800 border border-gray-200"
+                        ? "bg-csa-blue/90 text-white border border-csa-blue/30"
+                        : "bg-white/20 text-gray-800 border border-white/30"
                     )}
                   >
                     {message.text}
+                    {message.isTyping && (
+                      <span className="inline-block w-2 h-4 bg-current animate-pulse ml-1">|</span>
+                    )}
                   </div>
                 </div>
               ))}
               {isTyping && (
                 <div className="flex justify-start">
-                  <div className="bg-csa-light text-gray-800 border border-gray-200 rounded-2xl px-4 py-2 text-sm">
+                  <div className="bg-white/20 text-gray-800 border border-white/30 backdrop-blur-sm rounded-2xl px-4 py-2 text-sm">
                     <div className="flex space-x-1">
                       <div className="w-2 h-2 bg-csa-blue rounded-full animate-bounce"></div>
                       <div className="w-2 h-2 bg-csa-blue rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
@@ -158,19 +191,19 @@ const ChatBot: React.FC<ChatBotProps> = ({ isOpen, onToggle }) => {
               )}
             </div>
           </ScrollArea>
-          <div className="p-4 border-t border-gray-200">
+          <div className="p-4 border-t border-white/10 bg-white/5 backdrop-blur-md">
             <div className="flex space-x-2">
               <Input
                 value={inputText}
                 onChange={(e) => setInputText(e.target.value)}
                 onKeyPress={handleKeyPress}
                 placeholder="Type your message..."
-                className="flex-1 rounded-full border-csa-blue/20 focus:border-csa-blue"
+                className="flex-1 rounded-full bg-white/10 backdrop-blur-sm border-white/20 focus:border-csa-blue/50 text-gray-800 placeholder:text-gray-600"
               />
               <Button
                 onClick={handleSendMessage}
                 size="sm"
-                className="bg-csa-accent hover:bg-csa-accent/90 text-white rounded-full h-10 w-10 p-0"
+                className="bg-csa-accent/90 hover:bg-csa-accent backdrop-blur-sm text-white rounded-full h-10 w-10 p-0 border border-csa-accent/30"
               >
                 <Send className="h-4 w-4" />
               </Button>

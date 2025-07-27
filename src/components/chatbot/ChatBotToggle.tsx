@@ -15,7 +15,7 @@ const ChatBotToggle: React.FC<ChatBotToggleProps> = ({ onClick, hasNewMessages =
       <Button
         onClick={onClick}
         size="lg"
-        className="bg-gradient-to-r from-csa-blue to-csa-navy hover:from-csa-navy hover:to-csa-blue text-white rounded-full h-14 w-14 p-0 shadow-lg animate-fade-in relative overflow-hidden"
+        className="bg-gradient-to-r from-csa-blue/90 to-csa-navy/90 hover:from-csa-navy/90 hover:to-csa-blue/90 text-white rounded-full h-14 w-14 p-0 shadow-lg animate-fade-in relative overflow-hidden backdrop-blur-md border border-white/20"
       >
         <div className="relative flex items-center justify-center">
           <img 
@@ -25,7 +25,7 @@ const ChatBotToggle: React.FC<ChatBotToggleProps> = ({ onClick, hasNewMessages =
           />
         </div>
         {hasNewMessages && (
-          <Badge className="absolute -top-2 -right-2 h-5 w-5 p-0 bg-csa-accent text-white text-xs rounded-full flex items-center justify-center">
+          <Badge className="absolute -top-2 -right-2 h-5 w-5 p-0 bg-csa-accent/90 text-white text-xs rounded-full flex items-center justify-center backdrop-blur-sm border border-csa-accent/30">
             !
           </Badge>
         )}
