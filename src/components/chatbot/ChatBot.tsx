@@ -92,7 +92,7 @@ const ChatBot: React.FC<ChatBotProps> = ({ isOpen, onToggle }) => {
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <Avatar className="h-10 w-10 border-2 border-white/20">
-                <AvatarImage src="/lovable-uploads/4acb466e-ae0f-4f66-b659-dce441ac3907.png" alt="CSA Bot" />
+                <AvatarImage src="/lovable-uploads/f645724d-2997-4759-9410-c49a14d80693.png" alt="CSA Bot" />
                 <AvatarFallback className="bg-csa-accent text-white">CSA</AvatarFallback>
               </Avatar>
               <div>
