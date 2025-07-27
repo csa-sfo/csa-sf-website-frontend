@@ -24,7 +24,7 @@ const ChatBotToggle: React.FC<ChatBotToggleProps> = ({ onClick, hasNewMessages =
       >
         <div className="relative flex items-center justify-center transition-transform duration-300 ease-in-out group-hover:scale-110">
           <img 
-            src="/lovable-uploads/f645724d-2997-4759-9410-c49a14d80693.png" 
+            src="/lovable-uploads/6c9d0416-c5cd-4552-baee-a4aaf7ed03e5.png" 
             alt="CSA Bot" 
             className="h-14 w-14 object-contain transition-transform duration-300 ease-in-out hover:scale-110 drop-shadow-lg"
           />
