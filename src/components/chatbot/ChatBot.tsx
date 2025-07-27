@@ -33,7 +33,7 @@ const ChatBot: React.FC<ChatBotProps> = ({ isOpen, onToggle }) => {
   ]);
   const [inputText, setInputText] = useState('');
   const [isTyping, setIsTyping] = useState(false);
-  const [isAnimating, setIsAnimating] = useState(false);
+  const [showZoomOut, setShowZoomOut] = useState(false);
   const scrollAreaRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -44,8 +44,8 @@ const ChatBot: React.FC<ChatBotProps> = ({ isOpen, onToggle }) => {
 
   useEffect(() => {
     if (isOpen) {
-      setIsAnimating(true);
-      const timer = setTimeout(() => setIsAnimating(false), 500);
+      setShowZoomOut(true);
+      const timer = setTimeout(() => setShowZoomOut(false), 600);
       return () => clearTimeout(timer);
     }
   }, [isOpen]);
@@ -126,24 +126,35 @@ const ChatBot: React.FC<ChatBotProps> = ({ isOpen, onToggle }) => {
 
   return (
     <div className="fixed bottom-4 right-4 z-50 w-80 sm:w-96 animate-slide-in-right">
+      {/* Zoom out mascot effect */}
+      {showZoomOut && (
+        <div className="absolute -top-20 right-8 z-60 pointer-events-none">
+          <div className="relative">
+            <img 
+              src="/lovable-uploads/6c9d0416-c5cd-4552-baee-a4aaf7ed03e5.png" 
+              alt="CSA Bot" 
+              className="h-16 w-16 object-contain animate-[zoom-out_0.6s_ease-out_forwards] opacity-90"
+            />
+            <div className="absolute inset-0 rounded-full border-2 border-csa-blue/30 animate-ping"></div>
+          </div>
+        </div>
+      )}
+      
       <Card className="shadow-2xl border-4 border-csa-blue bg-white/10 backdrop-blur-xl rounded-3xl overflow-hidden">
         <CardHeader className="bg-gradient-to-r from-csa-blue/90 to-csa-navy/90 backdrop-blur-md text-white p-4 border-b border-white/10">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <div className="relative">
-                <Avatar className={cn(
-                  "h-16 w-16 border-2 border-white/30 bg-white/10 backdrop-blur-sm transition-all duration-500 ease-out",
-                  isAnimating ? "scale-75 animate-pulse" : "scale-100"
-                )}>
+                <Avatar className="h-12 w-12 border-2 border-white/30 bg-white/10 backdrop-blur-sm">
                   <AvatarImage 
                     src="/lovable-uploads/6c9d0416-c5cd-4552-baee-a4aaf7ed03e5.png" 
                     alt="CSA Bot" 
-                    className="h-16 w-16 object-contain transition-transform duration-500 ease-out"
+                    className="h-12 w-12 object-contain"
                   />
                   <AvatarFallback className="bg-csa-accent/80 text-white backdrop-blur-sm">CSA</AvatarFallback>
                 </Avatar>
-                {/* Floating mascot effect */}
-                <div className="absolute inset-0 rounded-full border-2 border-white/20 animate-pulse opacity-50"></div>
+                {/* Subtle pulse effect */}
+                <div className="absolute inset-0 rounded-full border-2 border-white/20 animate-pulse opacity-30"></div>
               </div>
               <div>
                 <CardTitle className="text-lg">CSA Bot</CardTitle>
