@@ -45,7 +45,7 @@ const ChatBot: React.FC<ChatBotProps> = ({ isOpen, onToggle }) => {
   useEffect(() => {
     if (isOpen) {
       setShowZoomOut(true);
-      const timer = setTimeout(() => setShowZoomOut(false), 800);
+      const timer = setTimeout(() => setShowZoomOut(false), 1000);
       return () => clearTimeout(timer);
     }
   }, [isOpen]);
@@ -125,24 +125,24 @@ const ChatBot: React.FC<ChatBotProps> = ({ isOpen, onToggle }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed bottom-4 right-4 z-50 w-80 sm:w-96 animate-slide-in-right">
-      {/* Zoom out mascot effect - positioned at bottom right like the toggle button */}
+    <div className="fixed bottom-4 right-4 z-50 w-80 sm:w-96">
+      {/* Zoom out mascot effect - starts from toggle button position */}
       {showZoomOut && (
         <div className="absolute bottom-0 right-0 z-60 pointer-events-none">
-          <div className="relative">
-            <div className="h-20 w-20 rounded-full bg-white/95 border-4 border-csa-blue flex items-center justify-center">
-              <img 
-                src="/lovable-uploads/6c9d0416-c5cd-4552-baee-a4aaf7ed03e5.png" 
-                alt="CSA Bot" 
-                className="h-14 w-14 object-contain animate-[zoom-out_0.8s_ease-out_forwards]"
-              />
-            </div>
-            <div className="absolute inset-0 rounded-full border-2 border-csa-blue/30 animate-ping"></div>
+          <div className="h-24 w-24 rounded-full bg-white/95 border-4 border-csa-blue flex items-center justify-center animate-zoom-out-to-header">
+            <img 
+              src="/lovable-uploads/6c9d0416-c5cd-4552-baee-a4aaf7ed03e5.png" 
+              alt="CSA Bot" 
+              className="h-16 w-16 object-contain"
+            />
           </div>
         </div>
       )}
       
-      <Card className="shadow-2xl border-4 border-csa-blue bg-white/10 backdrop-blur-xl rounded-3xl overflow-hidden">
+      <Card className={cn(
+        "shadow-2xl border-4 border-csa-blue bg-white/10 backdrop-blur-xl rounded-3xl overflow-hidden",
+        isOpen ? "animate-slide-in-right" : ""
+      )}>
         <CardHeader className="bg-gradient-to-r from-csa-blue/90 to-csa-navy/90 backdrop-blur-md text-white p-4 border-b border-white/10">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
