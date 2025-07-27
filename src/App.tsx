@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import ChatBotWrapper from "@/components/chatbot/ChatBotWrapper";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Events from "./pages/Events";
@@ -40,6 +41,7 @@ const App = () => (
             </Routes>
           </main>
           <Footer />
+          <ChatBotWrapper />
         </div>
       </BrowserRouter>
     </TooltipProvider>

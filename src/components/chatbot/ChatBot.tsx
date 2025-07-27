@@ -1,0 +1,185 @@
+
+import React, { useState, useRef, useEffect } from 'react';
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
+import { Send, MessageCircle, X, Minimize2 } from "lucide-react";
+import { cn } from "@/lib/utils";
+
+interface Message {
+  id: string;
+  text: string;
+  sender: 'user' | 'bot';
+  timestamp: Date;
+}
+
+interface ChatBotProps {
+  isOpen: boolean;
+  onToggle: () => void;
+}
+
+const ChatBot: React.FC<ChatBotProps> = ({ isOpen, onToggle }) => {
+  const [messages, setMessages] = useState<Message[]>([
+    {
+      id: '1',
+      text: "Hi! I'm CSA Bot, your Cloud Security Alliance assistant. How can I help you today?",
+      sender: 'bot',
+      timestamp: new Date()
+    }
+  ]);
+  const [inputText, setInputText] = useState('');
+  const [isTyping, setIsTyping] = useState(false);
+  const scrollAreaRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (scrollAreaRef.current) {
+      scrollAreaRef.current.scrollTop = scrollAreaRef.current.scrollHeight;
+    }
+  }, [messages]);
+
+  const handleSendMessage = () => {
+    if (!inputText.trim()) return;
+
+    const userMessage: Message = {
+      id: Date.now().toString(),
+      text: inputText,
+      sender: 'user',
+      timestamp: new Date()
+    };
+
+    setMessages(prev => [...prev, userMessage]);
+    setInputText('');
+    setIsTyping(true);
+
+    // Simulate bot response
+    setTimeout(() => {
+      const botMessage: Message = {
+        id: (Date.now() + 1).toString(),
+        text: getBotResponse(inputText),
+        sender: 'bot',
+        timestamp: new Date()
+      };
+      setMessages(prev => [...prev, botMessage]);
+      setIsTyping(false);
+    }, 1000);
+  };
+
+  const getBotResponse = (input: string): string => {
+    const responses = [
+      "I'm here to help with Cloud Security Alliance questions! What would you like to know about our events, membership, or cloud security resources?",
+      "Great question! Our next event is coming up soon. Would you like more information about registration?",
+      "Cloud security is our specialty! I can help you with information about best practices, upcoming training, or connecting with our community.",
+      "Thanks for your interest in CSA! Feel free to ask about our certification programs, local chapter events, or how to get involved.",
+    ];
+    return responses[Math.floor(Math.random() * responses.length)];
+  };
+
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      handleSendMessage();
+    }
+  };
+
+  if (!isOpen) return null;
+
+  return (
+    <div className="fixed bottom-4 right-4 z-50 w-80 sm:w-96 animate-slide-in-right">
+      <Card className="shadow-2xl border-csa-blue/20">
+        <CardHeader className="bg-gradient-to-r from-csa-blue to-csa-navy text-white p-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-3">
+              <Avatar className="h-10 w-10 border-2 border-white/20">
+                <AvatarImage src="/lovable-uploads/4acb466e-ae0f-4f66-b659-dce441ac3907.png" alt="CSA Bot" />
+                <AvatarFallback className="bg-csa-accent text-white">CSA</AvatarFallback>
+              </Avatar>
+              <div>
+                <CardTitle className="text-lg">CSA Bot</CardTitle>
+                <Badge variant="secondary" className="bg-green-500/20 text-green-100 text-xs">
+                  Online
+                </Badge>
+              </div>
+            </div>
+            <div className="flex items-center space-x-2">
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={onToggle}
+                className="text-white hover:bg-white/10 h-8 w-8 p-0"
+              >
+                <Minimize2 className="h-4 w-4" />
+              </Button>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={onToggle}
+                className="text-white hover:bg-white/10 h-8 w-8 p-0"
+              >
+                <X className="h-4 w-4" />
+              </Button>
+            </div>
+          </div>
+        </CardHeader>
+        <CardContent className="p-0">
+          <ScrollArea className="h-80 p-4" ref={scrollAreaRef}>
+            <div className="space-y-4">
+              {messages.map((message) => (
+                <div
+                  key={message.id}
+                  className={cn(
+                    "flex",
+                    message.sender === 'user' ? "justify-end" : "justify-start"
+                  )}
+                >
+                  <div
+                    className={cn(
+                      "max-w-[75%] rounded-2xl px-4 py-2 text-sm",
+                      message.sender === 'user'
+                        ? "bg-csa-blue text-white"
+                        : "bg-csa-light text-gray-800 border border-gray-200"
+                    )}
+                  >
+                    {message.text}
+                  </div>
+                </div>
+              ))}
+              {isTyping && (
+                <div className="flex justify-start">
+                  <div className="bg-csa-light text-gray-800 border border-gray-200 rounded-2xl px-4 py-2 text-sm">
+                    <div className="flex space-x-1">
+                      <div className="w-2 h-2 bg-csa-blue rounded-full animate-bounce"></div>
+                      <div className="w-2 h-2 bg-csa-blue rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                      <div className="w-2 h-2 bg-csa-blue rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          </ScrollArea>
+          <div className="p-4 border-t border-gray-200">
+            <div className="flex space-x-2">
+              <Input
+                value={inputText}
+                onChange={(e) => setInputText(e.target.value)}
+                onKeyPress={handleKeyPress}
+                placeholder="Type your message..."
+                className="flex-1 rounded-full border-csa-blue/20 focus:border-csa-blue"
+              />
+              <Button
+                onClick={handleSendMessage}
+                size="sm"
+                className="bg-csa-accent hover:bg-csa-accent/90 text-white rounded-full h-10 w-10 p-0"
+              >
+                <Send className="h-4 w-4" />
+              </Button>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  );
+};
+
+export default ChatBot;
