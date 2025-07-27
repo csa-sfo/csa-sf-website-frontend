@@ -15,7 +15,7 @@ const ChatBotToggle: React.FC<ChatBotToggleProps> = ({ onClick, hasNewMessages =
       <Button
         onClick={onClick}
         size="lg"
-        className="bg-white/95 hover:bg-white text-gray-700 hover:text-csa-blue rounded-full h-14 w-14 p-0 shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out relative overflow-hidden backdrop-blur-md border border-gray-200/50 hover:border-csa-blue/30 transform hover:scale-105 animate-bounce"
+        className="bg-white/95 hover:bg-white text-gray-700 hover:text-csa-blue rounded-full h-14 w-14 p-0 shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out relative overflow-hidden backdrop-blur-md border-4 border-csa-blue hover:border-csa-navy transform hover:scale-105 animate-bounce"
         style={{
           animationDuration: '2s',
           animationIterationCount: 'infinite',

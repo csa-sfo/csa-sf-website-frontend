@@ -117,7 +117,7 @@ const ChatBot: React.FC<ChatBotProps> = ({ isOpen, onToggle }) => {
 
   return (
     <div className="fixed bottom-4 right-4 z-50 w-80 sm:w-96 animate-slide-in-right">
-      <Card className="shadow-2xl border-0 bg-white/10 backdrop-blur-xl border-white/20">
+      <Card className="shadow-2xl border-0 bg-white/10 backdrop-blur-xl border-white/20 rounded-3xl overflow-hidden">
         <CardHeader className="bg-gradient-to-r from-csa-blue/90 to-csa-navy/90 backdrop-blur-md text-white p-4 border-b border-white/10">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
