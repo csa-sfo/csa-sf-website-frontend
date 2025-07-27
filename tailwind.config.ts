@@ -107,15 +107,19 @@ export default {
 				},
 				'zoom-out': {
 					'0%': { 
-						transform: 'scale(1.2)',
+						transform: 'scale(1) translate(0, 0)',
 						opacity: '1'
 					},
-					'50%': { 
-						transform: 'scale(0.8)',
-						opacity: '0.8'
+					'30%': { 
+						transform: 'scale(1.1) translate(0, 0)',
+						opacity: '1'
+					},
+					'70%': { 
+						transform: 'scale(0.3) translate(-200px, -200px)',
+						opacity: '0.6'
 					},
 					'100%': { 
-						transform: 'scale(0.6)',
+						transform: 'scale(0.1) translate(-400px, -400px)',
 						opacity: '0'
 					}
 				}
@@ -125,7 +129,7 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.3s ease-out',
 				'slide-in-right': 'slide-in-right 0.3s ease-out',
-				'zoom-out': 'zoom-out 0.6s ease-out forwards'
+				'zoom-out': 'zoom-out 0.8s ease-out forwards'
 			},
 			fontFamily: {
 				sans: ['Inter', 'sans-serif'],
