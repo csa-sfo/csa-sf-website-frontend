@@ -33,6 +33,7 @@ const ChatBot: React.FC<ChatBotProps> = ({ isOpen, onToggle }) => {
   ]);
   const [inputText, setInputText] = useState('');
   const [isTyping, setIsTyping] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
   const scrollAreaRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -40,6 +41,14 @@ const ChatBot: React.FC<ChatBotProps> = ({ isOpen, onToggle }) => {
       scrollAreaRef.current.scrollTop = scrollAreaRef.current.scrollHeight;
     }
   }, [messages]);
+
+  useEffect(() => {
+    if (isOpen) {
+      setIsAnimating(true);
+      const timer = setTimeout(() => setIsAnimating(false), 500);
+      return () => clearTimeout(timer);
+    }
+  }, [isOpen]);
 
   const handleSendMessage = () => {
     if (!inputText.trim()) return;
@@ -121,10 +130,21 @@ const ChatBot: React.FC<ChatBotProps> = ({ isOpen, onToggle }) => {
         <CardHeader className="bg-gradient-to-r from-csa-blue/90 to-csa-navy/90 backdrop-blur-md text-white p-4 border-b border-white/10">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <Avatar className="h-14 w-14 border-2 border-white/30 bg-white/10 backdrop-blur-sm">
-                <AvatarImage src="/lovable-uploads/6c9d0416-c5cd-4552-baee-a4aaf7ed03e5.png" alt="CSA Bot" className="h-14 w-14 object-contain" />
-                <AvatarFallback className="bg-csa-accent/80 text-white backdrop-blur-sm">CSA</AvatarFallback>
-              </Avatar>
+              <div className="relative">
+                <Avatar className={cn(
+                  "h-16 w-16 border-2 border-white/30 bg-white/10 backdrop-blur-sm transition-all duration-500 ease-out",
+                  isAnimating ? "scale-75 animate-pulse" : "scale-100"
+                )}>
+                  <AvatarImage 
+                    src="/lovable-uploads/6c9d0416-c5cd-4552-baee-a4aaf7ed03e5.png" 
+                    alt="CSA Bot" 
+                    className="h-16 w-16 object-contain transition-transform duration-500 ease-out"
+                  />
+                  <AvatarFallback className="bg-csa-accent/80 text-white backdrop-blur-sm">CSA</AvatarFallback>
+                </Avatar>
+                {/* Floating mascot effect */}
+                <div className="absolute inset-0 rounded-full border-2 border-white/20 animate-pulse opacity-50"></div>
+              </div>
               <div>
                 <CardTitle className="text-lg">CSA Bot</CardTitle>
                 <Badge variant="secondary" className="bg-green-500/30 text-green-100 text-xs backdrop-blur-sm border border-green-400/20">
