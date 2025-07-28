@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -34,45 +35,51 @@ export default function Index() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary to-secondary text-white overflow-hidden">
-        {/* Background Image - zoomed in more to show full bridge */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url('/lovable-uploads/cc966b67-e195-47f4-9d87-2b8757659a42.png')`,
-            backgroundSize: 'cover',
-            transform: 'scale(1.3)'
-          }}
-        />
-        {/* Lighter overlay for more white background */}
-        <div className="absolute inset-0 bg-gradient-to-r from-white/60 via-white/40 to-white/60"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-white/10 to-white/30"></div>
-        
-        <div className="relative container-site py-20 lg:py-32">
-          <div className="max-w-4xl animate-fade-in">
-            <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6 text-shadow-lg">
-              <span className="text-primary">Advancing Cloud Security in the</span>{" "}
-              <span className="text-accent">Bay Area</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-700 mb-8 leading-relaxed drop-shadow-md">
-              Join San Francisco's premier community of cloud security professionals. 
-              Connect, learn, and shape the future of cloud security together.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button 
-                asChild 
-                size="lg" 
-                className="text-lg px-8 py-3 shadow-lg"
-              >
-                <Link to="/events">View Upcoming Events</Link>
-              </Button>
-              <Button 
-                asChild 
-                size="lg" 
-                className="text-lg px-8 py-3 shadow-lg"
-              >
-                <Link to="/get-involved">Join Our Community</Link>
-              </Button>
+      <section className="relative bg-gradient-to-br from-primary to-secondary overflow-hidden">
+        <div className="container-site py-20 lg:py-32">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Column - Text Content */}
+            <div className="space-y-8 animate-fade-in">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white">
+                <span className="text-white">Advancing Cloud Security in the</span>{" "}
+                <span className="text-csa-accent">Bay Area</span>
+              </h1>
+              <p className="text-xl md:text-2xl text-white/90 leading-relaxed">
+                Join San Francisco's premier community of cloud security professionals. 
+                Connect, learn, and shape the future of cloud security together.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button 
+                  asChild 
+                  size="lg" 
+                  className="bg-csa-accent hover:bg-csa-accent/90 text-white text-lg px-8 py-3 shadow-lg"
+                >
+                  <Link to="/events">View Upcoming Events</Link>
+                </Button>
+                <Button 
+                  asChild 
+                  size="lg" 
+                  variant="outline"
+                  className="border-white text-white hover:bg-white hover:text-primary text-lg px-8 py-3 shadow-lg"
+                >
+                  <Link to="/get-involved">Join Our Community</Link>
+                </Button>
+              </div>
+            </div>
+
+            {/* Right Column - Image */}
+            <div className="relative animate-fade-in" style={{ animationDelay: '0.2s' }}>
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <img 
+                  src="/lovable-uploads/cc966b67-e195-47f4-9d87-2b8757659a42.png"
+                  alt="Golden Gate Bridge representing San Francisco Cloud Security Alliance"
+                  className="w-full h-auto object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+              </div>
+              {/* Decorative elements */}
+              <div className="absolute -top-4 -right-4 w-24 h-24 bg-csa-accent/20 rounded-full blur-xl"></div>
+              <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-white/10 rounded-full blur-xl"></div>
             </div>
           </div>
         </div>
