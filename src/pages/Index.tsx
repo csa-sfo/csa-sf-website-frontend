@@ -1,5 +1,4 @@
 
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -67,13 +66,21 @@ export default function Index() {
                 </Button>
               </div>
               
-              {/* CSA Chapter of Excellence Badge */}
-              <div className="flex justify-center sm:justify-start pt-4">
-                <img 
-                  src="/lovable-uploads/2dad453f-52d8-4e4c-b61a-c988b8f613a1.png"
-                  alt="CSA Chapter of Excellence Badge"
-                  className="w-32 h-32 object-contain"
-                />
+              {/* CSA Badges */}
+              <div className="flex flex-col items-center sm:items-start pt-4 space-y-4">
+                <div className="flex gap-4 items-center">
+                  <img 
+                    src="/lovable-uploads/2dad453f-52d8-4e4c-b61a-c988b8f613a1.png"
+                    alt="CSA Chapter of Excellence Badge"
+                    className="w-24 h-24 object-contain"
+                  />
+                  <img 
+                    src="/lovable-uploads/d2c2311b-14e8-4df8-8a1e-950422afff50.png"
+                    alt="CSA San Francisco Chapter Badge"
+                    className="w-24 h-24 object-contain"
+                  />
+                </div>
+                <p className="text-gray-600 text-sm font-medium">We are a 501(c)3 nonprofit</p>
               </div>
             </div>
 
@@ -259,4 +266,3 @@ export default function Index() {
     </div>
   );
 }
-
