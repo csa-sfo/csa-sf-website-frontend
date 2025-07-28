@@ -1,4 +1,5 @@
 
+
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -36,15 +37,15 @@ export default function Index() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative bg-white overflow-hidden">
-        <div className="container-site py-20 lg:py-32">
+        <div className="container-site py-16 lg:py-28">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Column - Text Content */}
-            <div className="space-y-8 animate-fade-in">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-secondary">
+            <div className="space-y-6 animate-fade-in">
+              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight text-secondary">
                 <span className="text-secondary">Advancing Cloud Security in the</span>{" "}
                 <span className="text-csa-accent">Bay Area</span>
               </h1>
-              <p className="text-xl md:text-2xl text-gray-600 leading-relaxed">
+              <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
                 Join San Francisco's premier community of cloud security professionals. 
                 Connect, learn, and shape the future of cloud security together.
               </p>
@@ -64,6 +65,15 @@ export default function Index() {
                 >
                   <Link to="/get-involved">Join Our Community</Link>
                 </Button>
+              </div>
+              
+              {/* CSA Chapter of Excellence Badge */}
+              <div className="flex justify-center sm:justify-start pt-4">
+                <img 
+                  src="/lovable-uploads/2dad453f-52d8-4e4c-b61a-c988b8f613a1.png"
+                  alt="CSA Chapter of Excellence Badge"
+                  className="w-32 h-32 object-contain"
+                />
               </div>
             </div>
 
@@ -249,3 +259,4 @@ export default function Index() {
     </div>
   );
 }
+
