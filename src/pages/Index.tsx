@@ -35,16 +35,16 @@ export default function Index() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary to-secondary overflow-hidden">
+      <section className="relative bg-white overflow-hidden">
         <div className="container-site py-20 lg:py-32">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Column - Text Content */}
             <div className="space-y-8 animate-fade-in">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white">
-                <span className="text-white">Advancing Cloud Security in the</span>{" "}
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-secondary">
+                <span className="text-secondary">Advancing Cloud Security in the</span>{" "}
                 <span className="text-csa-accent">Bay Area</span>
               </h1>
-              <p className="text-xl md:text-2xl text-white/90 leading-relaxed">
+              <p className="text-xl md:text-2xl text-gray-600 leading-relaxed">
                 Join San Francisco's premier community of cloud security professionals. 
                 Connect, learn, and shape the future of cloud security together.
               </p>
@@ -60,7 +60,7 @@ export default function Index() {
                   asChild 
                   size="lg" 
                   variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-primary text-lg px-8 py-3 shadow-lg"
+                  className="border-csa-accent text-csa-accent hover:bg-csa-accent hover:text-white text-lg px-8 py-3 shadow-lg"
                 >
                   <Link to="/get-involved">Join Our Community</Link>
                 </Button>
@@ -79,7 +79,7 @@ export default function Index() {
               </div>
               {/* Decorative elements */}
               <div className="absolute -top-4 -right-4 w-24 h-24 bg-csa-accent/20 rounded-full blur-xl"></div>
-              <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-white/10 rounded-full blur-xl"></div>
+              <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-csa-accent/10 rounded-full blur-xl"></div>
             </div>
           </div>
         </div>
@@ -129,7 +129,7 @@ export default function Index() {
                   <Button 
                     asChild 
                     size="lg"
-                    className="bg-accent hover:bg-accent/90 text-white whitespace-nowrap"
+                    className="bg-csa-accent hover:bg-csa-accent/90 text-white whitespace-nowrap"
                   >
                     <Link to={`/events/${upcomingEvent.slug}`}>
                       Register Now
@@ -230,14 +230,14 @@ export default function Index() {
             <Button 
               asChild 
               size="lg" 
-              className="bg-accent hover:bg-accent/90 text-white text-lg px-8 py-3"
+              className="bg-csa-accent hover:bg-csa-accent/90 text-white text-lg px-8 py-3"
             >
               <Link to="/get-involved">Get Involved</Link>
             </Button>
             <Button 
               asChild 
               size="lg" 
-              className="bg-primary hover:bg-primary/90 text-white text-lg px-8 py-3"
+              className="bg-csa-accent hover:bg-csa-accent/90 text-white text-lg px-8 py-3"
             >
               <Link to="/about">Learn More</Link>
             </Button>
