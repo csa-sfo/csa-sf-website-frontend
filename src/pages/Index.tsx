@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -227,17 +228,20 @@ export default function Index() {
 
           <div className="grid grid-cols-1 gap-8 items-center justify-items-center">
             {technicalPartner.map((partner, index) => (
-              <div 
+              <a
                 key={partner.name}
-                className="grayscale hover:grayscale-0 transition-all duration-300 animate-fade-in"
+                href="https://indrasol.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-transform duration-300 hover:scale-105 animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <img 
                   src={partner.logo} 
                   alt={`${partner.name} logo`}
-                  className="h-16 object-contain"
+                  className="h-24 object-contain"
                 />
-              </div>
+              </a>
             ))}
           </div>
         </div>
