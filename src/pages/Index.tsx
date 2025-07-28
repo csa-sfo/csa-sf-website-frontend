@@ -72,12 +72,12 @@ export default function Index() {
                   <img 
                     src="/lovable-uploads/2dad453f-52d8-4e4c-b61a-c988b8f613a1.png"
                     alt="CSA Chapter of Excellence Badge"
-                    className="w-24 h-24 object-contain"
+                    className="w-32 h-32 object-contain"
                   />
                   <img 
                     src="/lovable-uploads/d2c2311b-14e8-4df8-8a1e-950422afff50.png"
                     alt="CSA San Francisco Chapter Badge"
-                    className="w-24 h-24 object-contain"
+                    className="w-32 h-32 object-contain"
                   />
                 </div>
                 <p className="text-gray-600 text-sm font-medium">We are a 501(c)3 nonprofit</p>
