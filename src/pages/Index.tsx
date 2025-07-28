@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -66,22 +67,24 @@ export default function Index() {
               </div>
             </div>
 
-            {/* Right Column - Image */}
+            {/* Right Column - Blended Image */}
             <div className="relative animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+              <div className="relative">
                 <img 
                   src="/lovable-uploads/cc966b67-e195-47f4-9d87-2b8757659a42.png"
                   alt="Golden Gate Bridge representing San Francisco Cloud Security Alliance"
-                  className="w-full h-auto object-cover"
+                  className="w-full h-auto object-cover opacity-90"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                {/* Subtle gradient overlay for better blending */}
+                <div className="absolute inset-0 bg-gradient-to-l from-transparent via-white/10 to-white/30"></div>
               </div>
-              {/* Decorative elements */}
-              <div className="absolute -top-4 -right-4 w-24 h-24 bg-csa-accent/20 rounded-full blur-xl"></div>
-              <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-csa-accent/10 rounded-full blur-xl"></div>
             </div>
           </div>
         </div>
+        
+        {/* Background decorative elements */}
+        <div className="absolute top-1/4 right-0 w-96 h-96 bg-csa-accent/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 left-0 w-64 h-64 bg-csa-accent/5 rounded-full blur-3xl"></div>
       </section>
 
       {/* Stats Section */}
