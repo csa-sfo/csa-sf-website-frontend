@@ -22,7 +22,7 @@ const upcomingEvent = {
 };
 
 const technicalPartner = [
-  { name: "AWS", logo: "/api/placeholder/120/60" },
+  { name: "Indrasol", logo: "/lovable-uploads/83c978ae-a49f-42da-9c88-adc23bf34dc3.png" },
 ];
 
 const sponsors = [
