@@ -12,7 +12,6 @@ const navigation = [
   { name: "Events", href: "/events" },
   { name: "Archive", href: "/archive" },
   { name: "Get Involved", href: "/get-involved" },
-  { name: "Sponsorship", href: "/sponsorship" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -67,8 +66,14 @@ export function Header() {
               ))}
             </nav>
             
-            {/* Auth Button */}
-            <div className="flex items-center">
+            {/* Auth and Sponsorship Buttons */}
+            <div className="flex items-center space-x-3">
+              <Button
+                asChild
+                className="bg-orange-500 text-white hover:bg-orange-600 px-4 py-2 text-sm"
+              >
+                <Link to="/sponsorship">Sponsorship</Link>
+              </Button>
               <Button
                 onClick={handleAuthClick}
                 className="bg-orange-500 text-white hover:bg-orange-600 px-4 py-2 text-sm"
@@ -130,8 +135,16 @@ export function Header() {
                   ))}
                 </nav>
                 
-                {/* Mobile Auth Button */}
+                {/* Mobile Auth and Sponsorship Buttons */}
                 <div className="flex flex-col space-y-3 sm:space-y-4 pt-4 border-t border-white/20">
+                  <Button
+                    asChild
+                    className="bg-orange-500 text-white hover:bg-orange-600 w-full py-3 text-base font-medium"
+                  >
+                    <Link to="/sponsorship" onClick={() => setIsOpen(false)}>
+                      Sponsorship
+                    </Link>
+                  </Button>
                   <Button
                     onClick={() => {
                       setIsOpen(false);

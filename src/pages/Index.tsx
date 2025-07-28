@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -40,7 +39,7 @@ export default function Index() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Column - Text Content */}
             <div className="space-y-8 animate-fade-in">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-secondary">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-secondary">
                 <span className="text-secondary">Advancing Cloud Security in the</span>{" "}
                 <span className="text-csa-accent">Bay Area</span>
               </h1>
