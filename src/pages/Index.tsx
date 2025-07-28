@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -22,7 +21,16 @@ const upcomingEvent = {
   tags: ["Zero Trust", "Enterprise Security"]
 };
 
+const technicalPartner = [
+  { name: "AWS", logo: "/api/placeholder/120/60" },
+];
+
 const sponsors = [
+  { name: "Microsoft", logo: "/api/placeholder/120/60" },
+  { name: "Google Cloud", logo: "/api/placeholder/120/60" },
+];
+
+const partners = [
   { name: "Adobe", logo: "/api/placeholder/120/60" },
   { name: "Salesforce", logo: "/api/placeholder/120/60" },
   { name: "Cisco", logo: "/api/placeholder/120/60" },
@@ -205,7 +213,67 @@ export default function Index() {
         </div>
       </section>
 
+      {/* Technical Partner Section */}
+      <section className="py-16 bg-white">
+        <div className="container-site">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
+              Technical Partner
+            </h2>
+            <p className="text-lg text-gray-600">
+              Our technical partner providing cutting-edge cloud infrastructure solutions.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-8 items-center justify-items-center">
+            {technicalPartner.map((partner, index) => (
+              <div 
+                key={partner.name}
+                className="grayscale hover:grayscale-0 transition-all duration-300 animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <img 
+                  src={partner.logo} 
+                  alt={`${partner.name} logo`}
+                  className="h-16 object-contain"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Sponsors Section */}
+      <section className="py-16 section-light">
+        <div className="container-site">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
+              Sponsors
+            </h2>
+            <p className="text-lg text-gray-600">
+              Thank you to our generous sponsors who support our community initiatives.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center justify-items-center">
+            {sponsors.map((sponsor, index) => (
+              <div 
+                key={sponsor.name}
+                className="grayscale hover:grayscale-0 transition-all duration-300 animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <img 
+                  src={sponsor.logo} 
+                  alt={`${sponsor.name} logo`}
+                  className="h-14 object-contain"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Our Partners Section */}
       <section className="py-16 bg-white">
         <div className="container-site">
           <div className="text-center mb-12">
@@ -218,15 +286,15 @@ export default function Index() {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center">
-            {sponsors.map((sponsor, index) => (
+            {partners.map((partner, index) => (
               <div 
-                key={sponsor.name}
+                key={partner.name}
                 className="grayscale hover:grayscale-0 transition-all duration-300 animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <img 
-                  src={sponsor.logo} 
-                  alt={`${sponsor.name} logo`}
+                  src={partner.logo} 
+                  alt={`${partner.name} logo`}
                   className="h-12 object-contain"
                 />
               </div>
